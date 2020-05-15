@@ -27,25 +27,13 @@ pipeline
 
         stage('Build') 
         { 
-            parallel
-            {
-                stage ('Backend')
-                {
+       
                     steps 
                     {
                        
                             sh 'mvn clean install'
                        
                     }
-                }
-                stage('Frontend')
-                {
-                    steps
-                    {
-                        sh'echo this is frontend Build'
-                    }
-                }
-            }
         }
 
          stage('Sonarqube') 
@@ -76,7 +64,7 @@ pipeline
                     pom = readMavenPom file: "pom.xml";
                     
                     // Find built artifact under target folder
-                    filesByGlob = findFiles(glob: "*.war");
+                    filesByGlob = findFiles(glob: "target/*.war");
                     
                   
                     // Extract the path from the File found
@@ -137,6 +125,13 @@ pipeline
 
                     }
                 }
+                  stage ('Start and run container')
+                {
+                    steps
+                    {
+                        sh'docker run --name webapp_${BUILD_NUMBER} webapp_${BUILD_NUMBER}'
+                    }
+                }
                 stage('Katalon')
                 {
                     steps
@@ -144,13 +139,7 @@ pipeline
                         sh'echo integratrion tests'
                     }
                 }
-                stage ('Start and run container')
-                {
-                    steps
-                    {
-                        sh'docker run --name webapp_${BUILD_NUMBER} webapp_${BUILD_NUMBER}'
-                    }
-                }
+              
             stage('Ansible')
                 {
                     steps
