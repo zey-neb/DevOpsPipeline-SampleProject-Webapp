@@ -136,7 +136,7 @@ pipeline
                 {
                     steps
                     {
-                        sh'echo integratrion tests'
+                        sh'./Katalon.sh'
                     }
                 }
               
