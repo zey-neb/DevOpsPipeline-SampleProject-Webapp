@@ -1,4 +1,4 @@
-FROM tomcat:8.0-alpine
+FROM tomcat:perso
 
 ADD target/WebApp.war /usr/local/tomcat/webapps/
 
