@@ -129,7 +129,7 @@ pipeline
                 {
                     steps
                     {
-                        sh' docker run -d --name webapp_${BUILD_NUMBER} webapp:${BUILD_NUMBER}'
+                        sh' docker run -d -p ${BUILD_NUMBER}000:8080 --name webapp_${BUILD_NUMBER} webapp:${BUILD_NUMBER}'
                     }
                 }
                 stage('Katalon')
