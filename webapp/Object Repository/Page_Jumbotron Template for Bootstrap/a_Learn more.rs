@@ -3,7 +3,7 @@
    <description></description>
    <name>a_Learn more</name>
    <tag></tag>
-   <elementGuidId>416462d2-0ef4-4a78-857f-9f2f11230958</elementGuidId>
+   <elementGuidId>5e7c87c6-eef2-439a-8be2-9e877ec8ecc9</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>

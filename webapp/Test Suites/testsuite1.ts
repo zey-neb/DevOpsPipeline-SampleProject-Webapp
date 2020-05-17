@@ -9,5 +9,5 @@
    <pageLoadTimeout>30</pageLoadTimeout>
    <pageLoadTimeoutDefault>true</pageLoadTimeoutDefault>
    <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
-   <testSuiteGuid>84f69ac2-a648-453a-a39c-8b7ca8122fea</testSuiteGuid>
+   <testSuiteGuid>2c90737c-0f05-4016-a802-85cd4c67404f</testSuiteGuid>
 </TestSuiteEntity>

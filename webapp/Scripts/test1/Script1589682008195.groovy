@@ -21,24 +21,22 @@ WebUI.openBrowser('')
 WebUI.navigateToUrl('http://0.0.0.0:14000/WebApp/')
 
 WebUI.setText(findTestObject('Object Repository/Page_Jumbotron Template for Bootstrap/input_Toggle navigation_form-control'), 
-    'abc')
+    'admin')
 
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Jumbotron Template for Bootstrap/input_Toggle navigation_form-control_1'), 
     'RAIVpflpDOg=')
 
 WebUI.click(findTestObject('Object Repository/Page_Jumbotron Template for Bootstrap/button_Sign in'))
 
+WebUI.click(findTestObject('Object Repository/Page_Jumbotron Template for Bootstrap/a_View details'))
+
+WebUI.click(findTestObject('Object Repository/Page_Jumbotron Template for Bootstrap/a_View details'))
+
 WebUI.click(findTestObject('Object Repository/Page_Jumbotron Template for Bootstrap/a_Learn more'))
 
 WebUI.click(findTestObject('Object Repository/Page_Jumbotron Template for Bootstrap/a_View details'))
 
-WebUI.click(findTestObject('Object Repository/Page_Jumbotron Template for Bootstrap/a_View details'))
-
-WebUI.click(findTestObject('Object Repository/Page_Jumbotron Template for Bootstrap/a_View details'))
-
-WebUI.click(findTestObject('Object Repository/Page_Jumbotron Template for Bootstrap/h2_Heading'))
-
-WebUI.click(findTestObject('Object Repository/Page_Jumbotron Template for Bootstrap/a_Learn more'))
+WebUI.click(findTestObject('Object Repository/Page_Jumbotron Template for Bootstrap/h1_Hello'))
 
 WebUI.closeBrowser()
 

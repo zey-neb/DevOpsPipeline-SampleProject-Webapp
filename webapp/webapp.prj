@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
    <description></description>
-   <name>webApp</name>
+   <name>webapp</name>
    <tag></tag>
-   <UUID>f51dfddf-25f5-4da9-a534-ddaef26b5c1b</UUID>
+   <UUID>65e278ac-9a95-4750-ae4d-0d39530cc1fd</UUID>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
    <sourceContent>
@@ -24,5 +24,5 @@
          </systemFolderConfiguration>
       </systemFolderList>
    </sourceContent>
-   <type>WEBUI</type>
+   <type>GENERIC</type>
 </Project>
