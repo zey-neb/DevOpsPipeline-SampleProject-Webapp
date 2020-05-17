@@ -1,1 +1,2 @@
--projectPath="/home/zeyneb/Katalon Studio/webapp/webapp.prj" -retry=30 -retryFailedTestCases=true -testSuitePath="Test Suites/webapp" -executionProfile="default" -browserType="Chrome" -apiKey="a3e26413-ecef-42f1-8259-66bcd2dadf9e"
+cd ~/Katalon_Studio_Engine_Linux_64-7.4.0/
+./katalonc -noSplash -runMode=console -projectPath="/home/zeyneb/Downloads/webapp/webapp/webapp.prj" -retry=3 -retryFailedTestCases=true -testSuitePath="Test Suites/testsuite1" -executionProfile="default" -browserType="Firefox" -apiKey="a3e26413-ecef-42f1-8259-66bcd2dadf9e"
