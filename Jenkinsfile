@@ -136,11 +136,7 @@ pipeline
                 {
                     steps
                     {
-<<<<<<< HEAD
                         sh'./Katalon.sh'
-=======
-                        sh'-projectPath="webapp/webapp.prj" -retry=3 -retryFailedTestCases=true -testSuitePath="Test Suites/testsuite1" -executionProfile="default" -browserType="Firefox" -apiKey="a3e26413-ecef-42f1-8259-66bcd2dadf9e"'
->>>>>>> 872de4025c7abb2e5aa67a7a87d7474863c7dfb1
                     }
                 }
               
