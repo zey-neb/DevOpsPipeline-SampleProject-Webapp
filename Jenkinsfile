@@ -136,7 +136,7 @@ pipeline
                 {
                     steps
                     {
-                        sh'./Katalon.sh'
+                        sh'bash ./Katalon.sh'
                     }
                 }
               
