@@ -3,14 +3,24 @@
   hosts: localhost
   connection: local  
   remote_user: root
-  tasks: 
+  tasks:
+      - name: Install python-docker on Red Hat based distribution
+        yum:
+         name: python-docker
+         enablerepo: extras
+         state: latest
+        when: ansible_os_family == 'RedHat'
+      - name: Install python-docker  on Debian based distribution
+        apt: 
+          name: python-docker
+          update_cache: yes
+        when: ansible_os_family == 'Debian' 
       - name: Create Container
         docker_container:
-              name: "webapp"
-              image: "webapp"
+              name: "webApp"
+              image: "webapp:24"
               ports:
                 - "1238:8080"
-              volume:
-                - tomcat_data:/usr/local/tomcat
               privileged: "true"
 
+...
