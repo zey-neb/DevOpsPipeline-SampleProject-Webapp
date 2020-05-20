@@ -53,7 +53,15 @@ pipeline
                 
             }
         }
-          stage('Nexus & Docker')
+         stage('Build Docker image')
+                {
+                
+                    steps 
+                    {
+                        sh 'docker build --no-cache -t webapp:${BUILD_NUMBER} .'             
+                    }
+                }
+          stage('Nexus')
           {
               parallel
               {
@@ -108,19 +116,7 @@ pipeline
                         }
                     }
                 }
-
-               stage('Build Docker image')
-                {
-                
-                    steps 
-                    {
-                        sh 'docker build --no-cache -t webapp:${BUILD_NUMBER} .'             
-                    }
-                }
-            }
-        }
-     
-                stage('Publish Docker image on Nexus')
+                 stage('Publish Docker image on Nexus')
                 {
                     steps
                     {
@@ -128,6 +124,12 @@ pipeline
 
                     }
                 }
+
+              
+            }
+        }
+     
+               
              
                
               
@@ -140,7 +142,7 @@ pipeline
                             colorized: true, 
                             inventory: 'hosts',
                             playbook: 'tomcat_playbook.yml',
-                            extras: "--extra-vars 'ansible_become_pass=toor'"
+                            extras: "--extra-vars 'ansible_become_pass=toor image=webapp:${BUILD_NUMBER} container=webapp_${BUILD_NUMBER}'"
                         )
                     }
                 }

@@ -18,8 +18,8 @@
         when: ansible_os_family == 'Debian' 
       - name: Create Container
         docker_container:
-              name: "webapp_${BUILD_NUMBER}"
-              image: "webapp:${BUILD_NUMBER}"
+              name: "{{ container }}"
+              image: "{{ image }}"
               ports:
                 - "1238:8080"
               privileged: "true"
