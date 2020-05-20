@@ -125,26 +125,22 @@ pipeline
 
                     }
                 }
-                  stage ('Start and run container')
+             
+               
+              
+            stage('Ansible-Start and run container')
                 {
                     steps
                     {
-                        sh' docker run -d -p ${BUILD_NUMBER}000:8080 --name webapp_${BUILD_NUMBER} webapp:${BUILD_NUMBER}'
+                        sh'sudo ansible-playbook -i hosts tomcat_playbook.yml'
                     }
                 }
-                stage('Katalon')
+
+             stage('Katalon')
                 {
                     steps
                     {
                         sh'bash ./Katalon.sh'
-                    }
-                }
-              
-            stage('Ansible')
-                {
-                    steps
-                    {
-                        sh'echo ansible'
                     }
                 }
             stage('Nagios')
