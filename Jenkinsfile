@@ -135,8 +135,8 @@ pipeline
                         sh'echo running container..'
                         ansiblePlaybook
                         (
-                            inventory : 'hosts',
-                            playbook: 'tomcat_playbook.yml'
+                            inventory:'hosts',
+                            playbook:'tomcat_playbook.yml'
                         )
                     }
                 }
