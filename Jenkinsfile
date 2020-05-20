@@ -137,12 +137,12 @@ pipeline
                 {
                     steps
                     {
-                        sh'echo running container..'
+                        sh'docker stop webapp; docker rm webapp'
                        ansiblePlaybook( 
                             colorized: true, 
                             inventory: 'hosts',
                             playbook: 'tomcat_playbook.yml',
-                            extras: "--extra-vars 'ansible_become_pass=toor image=webapp:${BUILD_NUMBER} container=webapp_${BUILD_NUMBER}'"
+                            extras: "--extra-vars 'ansible_become_pass=toor image=webapp:${BUILD_NUMBER}'"
                         )
                     }
                 }

@@ -16,12 +16,18 @@
           name: python-docker
           update_cache: yes
         when: ansible_os_family == 'Debian' 
+      - name:  Shut down previous Container
+        wait_for:
+             port: 1238
+             state: absent 
+  
       - name: Create Container
         docker_container:
-              name: "{{ container }}"
+              name: "webapp"
               image: "{{ image }}"
               ports:
                 - "1238:8080"
               privileged: "true"
+              
 
 ...
