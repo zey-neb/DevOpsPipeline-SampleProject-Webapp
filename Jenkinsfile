@@ -139,7 +139,8 @@ pipeline
                        ansiblePlaybook( 
                             colorized: true, 
                             inventory: 'hosts',
-                            playbook: 'tomcat_playbook.yml'
+                            playbook: 'tomcat_playbook.yml',
+                            extras: "--extra-vars 'ansible_become_pass=toor'"
                         )
                     }
                 }
