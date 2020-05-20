@@ -3,6 +3,7 @@
   hosts: localhost
   connection: local  
   remote_user: root
+  sudo: yes
   tasks:
       - name: Install python-docker on Red Hat based distribution
         yum:
