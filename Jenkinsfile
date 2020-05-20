@@ -1,6 +1,7 @@
 pipeline 
 {
-       agent {
+    agent 
+    {
 
         label "master"
 
@@ -52,69 +53,71 @@ pipeline
                 
             }
         }
-  stage('Nexus & Docker'){
-  parallel{
-        stage("publish  war file on nexus") 
-        {
-            steps 
-            {
-                script 
+          stage('Nexus & Docker')
+          {
+              parallel
+              {
+                stage("publish  war file on nexus") 
                 {
-                    // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
-                    pom = readMavenPom file: "pom.xml";
-                    
-                    // Find built artifact under target folder
-                    filesByGlob = findFiles(glob: "target/*.war");
-                    
-                  
-                    // Extract the path from the File found
-                    artifactPath = filesByGlob[0].path;
-                    
-                    // Assign to a boolean response verifying If the artifact name exists
-                    artifactExists = fileExists artifactPath;
-                    
-                    if(artifactExists) 
+                    steps 
                     {
-                        echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
-                        nexusArtifactUploader(
-                        
-                        nexusVersion: NEXUS_VERSION,
-                        protocol: NEXUS_PROTOCOL,
-                        nexusUrl: NEXUS_URL,
-                        groupId: pom.groupId,
-                        version: pom.version,
-                        repository: "WebApp",
-                        credentialsId: NEXUS_CREDENTIAL_ID,
-                        
-                        artifacts: [
-                        
-                        // Artifact generated such as .jar, .ear and .war files.
-                        [artifactId: pom.artifactId,
-                        classifier: '',
-                        file: artifactPath,
-                        type: 'war'],
-                        
-                        
-                        ]
-                        );
-                    } 
-                    else 
+                        script 
+                        {
+                            // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
+                            pom = readMavenPom file: "pom.xml";
+                            
+                            // Find built artifact under target folder
+                            filesByGlob = findFiles(glob: "target/*.war");
+                            
+                          
+                            // Extract the path from the File found
+                            artifactPath = filesByGlob[0].path;
+                            
+                            // Assign to a boolean response verifying If the artifact name exists
+                            artifactExists = fileExists artifactPath;
+                            
+                            if(artifactExists) 
+                            {
+                                echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
+                                nexusArtifactUploader(
+                                
+                                nexusVersion: NEXUS_VERSION,
+                                protocol: NEXUS_PROTOCOL,
+                                nexusUrl: NEXUS_URL,
+                                groupId: pom.groupId,
+                                version: pom.version,
+                                repository: "WebApp",
+                                credentialsId: NEXUS_CREDENTIAL_ID,
+                                
+                                artifacts: [
+                                
+                                // Artifact generated such as .jar, .ear and .war files.
+                                [artifactId: pom.artifactId,
+                                classifier: '',
+                                file: artifactPath,
+                                type: 'war'],
+                                
+                                
+                                ]
+                                );
+                            } 
+                            else 
+                            {
+                                error "*** File: ${artifactPath}, could not be found";
+                            }
+                        }
+                    }
+                }
+
+               stage('Build Docker image')
+                {
+                
+                    steps 
                     {
-                        error "*** File: ${artifactPath}, could not be found";
+                        sh 'docker build --no-cache -t webapp:${BUILD_NUMBER} .'             
                     }
                 }
             }
-    }
-
-           stage('Build Docker image')
-            {
-            
-                steps 
-                {
-                    sh 'docker build --no-cache -t webapp:${BUILD_NUMBER} .'             
-                }
-            }
-        }
         }
      
                 stage('Publish Docker image on Nexus')
@@ -133,10 +136,9 @@ pipeline
                     steps
                     {
                         sh'echo running container..'
-                        ansiblePlaybook
-                        (
-                            inventory:'hosts',
-                            playbook:'tomcat_playbook.yml'
+                       ansiblePlaybook( 
+                            inventory: 'hosts',
+                            playbook: 'tomcat_playbook.yml'
                         )
                     }
                 }
