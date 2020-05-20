@@ -6,8 +6,8 @@
   tasks: 
       - name: Create Container
         docker_container:
-              name: "webapp_${BUILD_NUMBER}"
-              image: "webapp:${BUILD_NUMBER}"
+              name: "webapp"
+              image: "webapp"
               ports:
                 - "1238:8080"
               volume:
