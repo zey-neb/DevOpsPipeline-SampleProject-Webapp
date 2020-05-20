@@ -132,7 +132,13 @@ pipeline
                 {
                     steps
                     {
-                        sh'sudo ansible-playbook -i hosts tomcat_playbook.yml'
+                        sh'echo running container..'
+                        ansiblePlaybook
+                        (
+                            colorized: true, 
+                            inventory: 'hosts',
+                            playbook: 'tomcat_playbook.yml'
+                        )
                     }
                 }
 
