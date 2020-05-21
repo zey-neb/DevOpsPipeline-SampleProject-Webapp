@@ -20,7 +20,7 @@ pipeline
         NEXUS_URL = "127.0.0.1:8081"
 
 
-        NEXUS_CREDENTIAL_ID = "adminnexus"
+        NEXUS_CREDENTIAL_ID = "nexus"
     }  
 
     stages 
