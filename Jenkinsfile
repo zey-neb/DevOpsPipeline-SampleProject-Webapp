@@ -120,7 +120,7 @@ pipeline
                 {
                     steps
                     {
-                       sh 'docker login -u admin -p kerro1235 127.0.0.1:8083; docker tag webapp:${BUILD_NUMBER} 127.0.0.1:8083/webapp:${BUILD_NUMBER}; docker push 127.0.0.1:8083/webapp:${BUILD_NUMBER}'
+                       sh 'docker login -u admin -p vneuron 127.0.0.1:8083; docker tag webapp:${BUILD_NUMBER} 127.0.0.1:8083/webapp:${BUILD_NUMBER}; docker push 127.0.0.1:8083/webapp:${BUILD_NUMBER}'
 
                     }
                 }
