@@ -17,18 +17,7 @@
           name: python-docker
           update_cache: yes
         when: ansible_os_family == 'Debian' 
-      
-      - name:  check if the specified port in in use 
-        shell: docker ps | grep 1238
-        register: contents
-      
-      - name: destroy Container
-        docker_container:
-          name: webapp
-          force_kill: yes
-          auto_remove: yes
-        when: contents.stdout != ""
-      
+    
       - name: Create Container
         docker_container:
               name: "webapp"

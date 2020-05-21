@@ -153,6 +153,7 @@ pipeline
                 {
                     steps
                     {
+                        sh'bash ./shutdown.sh 1238'
                        ansiblePlaybook( 
                             colorized: true, 
                             inventory: 'hosts',
