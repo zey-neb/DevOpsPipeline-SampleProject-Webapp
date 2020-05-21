@@ -153,7 +153,6 @@ pipeline
                 {
                     steps
                     {
-                        sh'docker stop webapp; docker rm webapp'
                        ansiblePlaybook( 
                             colorized: true, 
                             inventory: 'hosts',
