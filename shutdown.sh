@@ -3,15 +3,16 @@
 
 if test $# -ne 1
 then
+	echo "missing arg"
 	kill $$ 
 fi
 
 docker ps > /tmp/kek 
 a=`cat /tmp/kek | grep $1-`
-
+echo $1
 if test -z "$a"
 then
-	kill $$ 
+	echo "not found"
 else
 	echo $a | cut -d " " -f 1 | xargs docker stop
 	echo $a | cut -d " " -f 1 | xargs docker container rm  
