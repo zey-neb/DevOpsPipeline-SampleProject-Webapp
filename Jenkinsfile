@@ -28,13 +28,29 @@ pipeline
 
         stage('Build') 
         { 
-       
+            parallel
+            {
+                stage('Backend')
+                {
                     steps 
                     {
                        
                             sh 'mvn clean install'
                        
                     }
+                }
+                stage('Frontend')
+                {
+                    steps 
+                    {
+                       
+                            sh 'echo Frontend Build ...'
+                       
+                    }
+                }
+
+            }
+                    
         }
 
          stage('Sonarqube') 
