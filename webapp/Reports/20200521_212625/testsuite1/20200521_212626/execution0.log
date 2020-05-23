@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-05-21T21:31:44</date>
+  <millis>1590093104441</millis>
+  <sequence>0</sequence>
+  <level>START</level>
+  <class>com.kms.katalon.core.logging.XmlKeywordLogger</class>
+  <method>startSuite</method>
+  <thread>1</thread>
+  <message>Start Test Suite : Test Suites/testsuite1</message>
+  <nestedLevel>0</nestedLevel>
+  <property name="name">testsuite1</property>
+  <property name="description"></property>
+  <property name="id">Test Suites/testsuite1</property>
+</record>
+<record>
+  <date>2020-05-21T21:31:47</date>
+  <millis>1590093107779</millis>
+  <sequence>1</sequence>
+  <level>RUN_DATA</level>
+  <class>com.kms.katalon.core.logging.XmlKeywordLogger</class>
+  <method>logMessage</method>
+  <thread>1</thread>
+  <message>hostName = zeyneb - box</message>
+  <nestedLevel>0</nestedLevel>
+  <property name="hostName">zeyneb - box</property>
+</record>
+<record>
+  <date>2020-05-21T21:31:47</date>
+  <millis>1590093107956</millis>
+  <sequence>2</sequence>
+  <level>RUN_DATA</level>
+  <class>com.kms.katalon.core.logging.XmlKeywordLogger</class>
+  <method>logMessage</method>
+  <thread>1</thread>
+  <message>os = Linux 64bit</message>
+  <nestedLevel>0</nestedLevel>
+  <property name="os">Linux 64bit</property>
+</record>
+<record>
+  <date>2020-05-21T21:31:48</date>
+  <millis>1590093108053</millis>
+  <sequence>3</sequence>
+  <level>RUN_DATA</level>
+  <class>com.kms.katalon.core.logging.XmlKeywordLogger</class>
+  <method>logMessage</method>
+  <thread>1</thread>
+  <message>hostAddress = 192.168.119.139</message>
+  <nestedLevel>0</nestedLevel>
+  <property name="hostAddress">192.168.119.139</property>
+</record>
+<record>
+  <date>2020-05-21T21:31:48</date>
+  <millis>1590093108243</millis>
+  <sequence>4</sequence>
+  <level>RUN_DATA</level>
+  <class>com.kms.katalon.core.logging.XmlKeywordLogger</class>
+  <method>logMessage</method>
+  <thread>1</thread>
+  <message>katalonVersion = 7.4.0.1</message>
+  <nestedLevel>0</nestedLevel>
+  <property name="katalonVersion">7.4.0.1</property>
+</record>
