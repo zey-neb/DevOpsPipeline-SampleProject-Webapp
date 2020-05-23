@@ -4,6 +4,7 @@
   connection: local  
   become_method: sudo
   become: yes
+
   tasks:
       - name: Install python-docker on Red Hat based distribution
         yum:
@@ -25,6 +26,7 @@
               ports:
                 - "1238:8080"
               privileged: "true"
+              
               
 
 ...
