@@ -167,9 +167,9 @@ pipeline
                 }
 
           }
-     post {
-        always {
-            emailext body: 'JOB DONE', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
-        }
+     stage('Slack') {
+       step{
+        slackSend color: '#BADA55', message: 'Hello, World!'
+       }
     }
 }
