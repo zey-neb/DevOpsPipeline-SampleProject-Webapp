@@ -1,7 +1,0 @@
-image: tomcat:perso
-name: mycontainer
-src_port: 8080
-dest_port: 1238
-src_vol: /usr/local/tomcat
-dest_vol: /usr/local/tomcat
-privileged: true
