@@ -166,14 +166,10 @@ pipeline
                     }
                 }
 
-            stage('Nagios')
-                {
-                    steps
-                    {
-                        sh'echo Nagios'
-                    }
-                }
-            
+          }
+     post {
+        always {
+            emailext body: 'JOB DONE', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
         }
-    
+    }
 }
