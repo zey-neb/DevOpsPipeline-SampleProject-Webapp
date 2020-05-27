@@ -167,7 +167,7 @@ pipeline
                 }
                  stage('Slack') {
                    steps{
-                    slackSend color: '#BADA55', message: 'Hello, World!'
+                    slackSend color: '#BADA55', message: 'Build done with Succes!'
                    }
                 }
 
