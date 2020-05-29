@@ -34,8 +34,8 @@ pipeline
                 {
                     steps 
                     {
-            slackSend (message: " Jenkins Build n°$env.BUILD_NUMBER just started at:  ${url}", color: '#FF69B4')
-            }
+                            slackSend (message: " Jenkins Build n°$env.BUILD_NUMBER just started at:  ${url}", color: '#FF69B4')
+            
                             sh 'mvn clean install'
                        
                     }
