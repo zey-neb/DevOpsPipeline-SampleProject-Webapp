@@ -179,5 +179,6 @@ pipeline
                         color: color)
             }
           }
+      }
 
 }
