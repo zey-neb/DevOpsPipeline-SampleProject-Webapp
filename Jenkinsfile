@@ -165,12 +165,19 @@ pipeline
 
                     }
                 }
-                 stage('Slack') {
-                   steps{
-                    slackSend color: '#BADA55', message: 'Build done with Succes!'
-                   }
-                }
-
+          }
+          post {
+          always 
+          {
+            script 
+            {
+            def url = "${env.BUILD_URL}/display/redirect"
+            def status = currentBuild.currentResult
+            def color = status == 'SUCCESS' ? '#00FF00' : '#FF0000'
+            def resultIcon = status == 'SUCCESS' ? ':white_check_mark:' : ':anguished:'
+            slackSend (message: "${resultIcon} Jenkins Build $currentBuild.currentResult\n\nResults available at: [Jenkins [$env.JOB_NAME#$env.BUILD_NUMBER]](${url})", 
+                        color: color)
+            }
           }
 
 }
