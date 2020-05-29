@@ -37,7 +37,7 @@ pipeline
                         slackSend channel: '#build',
                         color: 'good',
                         message: "*Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n has started at: ${env.BUILD_URL}";
-                        sh 'mvn clean install'
+                       // sh 'mvn clean install'
                        
                     }
                 }
