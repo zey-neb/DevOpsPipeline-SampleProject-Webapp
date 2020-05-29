@@ -34,8 +34,10 @@ pipeline
                 {
                     steps 
                     {
-                            slackSend (message: " Jenkins Build n°$env.BUILD_NUMBER just started at:  ${url}", color: '#FF69B4')
-            
+                        slackSend channel: '#build',
+                            color: 'good',
+                            message: "Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n More info at: ${env.BUILD_URL}"
+                                
                             sh 'mvn clean install'
                        
                     }
