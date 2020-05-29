@@ -34,7 +34,8 @@ pipeline
                 {
                     steps 
                     {
-                       
+            slackSend (message: " Jenkins Build n°$env.BUILD_NUMBER just started at:  ${url}", color: #FF69B4)
+            }
                             sh 'mvn clean install'
                        
                     }
@@ -171,11 +172,11 @@ pipeline
           {
             script 
             {
-            def url = "${env.BUILD_URL}/display/redirect"
+            def url = "${env.BUILD_URL}"
             def status = currentBuild.currentResult
             def color = status == 'SUCCESS' ? '#00FF00' : '#FF0000'
             def resultIcon = status == 'SUCCESS' ? ':white_check_mark:' : ':anguished:'
-            slackSend (message: "${resultIcon} Jenkins Build $currentBuild.currentResult\n\nResults available at: [Jenkins [$env.JOB_NAME#$env.BUILD_NUMBER]](${url})", 
+            slackSend (message: "${resultIcon} Jenkins Build $currentBuild.currentResult\n\nResults available at: [ Jenkins-$env.JOB_NAME#$env.BUILD_NUMBER ] \n ${url}", 
                         color: color)
             }
           }

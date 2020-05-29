@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="testsuite1" time="1.62" tests="0" failures="0" errors="0">
+   <testsuite name="testsuite1" tests="0" failures="0" errors="0" time="1.62" timestamp="2020-05-29 16:35:06" hostname="zeyneb - box" id="Test Suites/testsuite1">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform" value=""/>
+         <property name="logFolder" value="/home/zeyneb/Downloads/webapp/webapp/Reports/20200529_163454/testsuite1/20200529_163454"/>
+         <property name="logFiles" value="/home/zeyneb/Downloads/webapp/webapp/Reports/20200529_163454/testsuite1/20200529_163454/execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="zeyneb - box"/>
+         <property name="hostAddress" value="192.168.119.141"/>
+         <property name="os" value="Linux 64bit"/>
+         <property name="katalonVersion" value="7.4.0.1"/>
+      </properties>
+      <system-out><![CDATA[2020-05-29 16:35:06 - [TEST_SUITE][PASSED] - testsuite1: null]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>
